@@ -119,18 +119,6 @@ crew = Crew(
     max_iter=15
 )
 
-# Executar o Crew
-def main():
-    ticker = "AAPL"  # Exemplo de ticker
-    result = crew.kickoff({
-        "ticker": "AAPL",
-        "current_date": datetime.now().strftime("%Y-%m-%d")
-    })
-    print(result)
-
-if __name__ == "__main__":
-    main()
-
 with st.sidebar:
     st.header('Enter the stock ticker')
 
