@@ -5,4 +5,4 @@ langchain_openai
 langchain_community
 streamlit
 duckduckgo_search
-pysqlit3-binary
+pysqlite3-binary
