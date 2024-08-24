@@ -131,7 +131,8 @@ if submit_button:
         st.error("Please fill the ticker field")
     else:
         results=crew.kickoff({
-            "ticker": topic
+            "ticker": topic,
+            "current_date": datetime.now().strftime("%Y-%m-%d")
         })
 
         st.subheader("Result of your research;")
