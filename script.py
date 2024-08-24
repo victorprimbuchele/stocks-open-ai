@@ -135,5 +135,13 @@ if submit_button:
             "current_date": datetime.now().strftime("%Y-%m-%d")
         })
 
-        st.subheader("Result of your research;")
-        st.write(results['final_output'])
+        # Debugging: Verifique o tipo e conteúdo de results
+        st.write("Type of results:", type(results))
+        st.write("Content of results:", results)
+
+        # Ajustar a forma de acessar os dados
+        if hasattr(results, 'final_output'):
+            st.subheader("Result of your research;")
+            st.write(results.final_output)
+        else:
+            st.error("Unexpected result structure.")
