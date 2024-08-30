@@ -135,10 +135,6 @@ if submit_button:
             "current_date": datetime.now().strftime("%Y-%m-%d")
         })
 
-        # Debugging: Display the type and content of results
-        st.write("Type of results:", type(results))
-        st.write("Content of results:", results)
-
         # Check if 'tasks_output' exists and iterate over it to display content
         if hasattr(results, 'tasks_output'):
             st.subheader("Result of your research:")
