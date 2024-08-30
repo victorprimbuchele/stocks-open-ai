@@ -130,7 +130,7 @@ if submit_button:
     if not topic:
         st.error("Please fill the ticker field")
     else:
-        results=crew.kickoff({
+        results = crew.kickoff({
             "ticker": topic,
             "current_date": datetime.now().strftime("%Y-%m-%d")
         })
@@ -139,9 +139,15 @@ if submit_button:
         st.write("Type of results:", type(results))
         st.write("Content of results:", results)
 
-        # Ajustar a forma de acessar os dados
-        if hasattr(results, 'final_output'):
-            st.subheader("Result of your research;")
-            st.write(results.final_output)
+        # Check if 'tasks_output' is present and iterate over it to display content
+        if 'tasks_output' in results:
+            st.subheader("Result of your research:")
+
+            # Iterate through each task's output and display the 'raw' content
+            for task_output in results['tasks_output']:
+                if 'raw' in task_output:
+                    st.write(task_output['raw'])
+                else:
+                    st.write("Task output does not have a 'raw' field.")
         else:
             st.error("Unexpected result structure.")
